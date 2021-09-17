@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.androidphpmysql">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AndroidPHPMySQL"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <service
+            android:name=".broadcast.CustomerService"
+            android:enabled="true" />
+        <service
+            android:name=".broadcast.ProviderService"
+            android:enabled="true" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".other.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".reservedservice.CalendarActivity" />
+        <activity android:name=".freetime.FreeTimeActivity" />
+        <activity android:name=".other.AboutActivity" />
+        <activity android:name=".profile.StatisticsActivity" />
+        <activity android:name=".service.NewServiceActivity" />
+        <activity android:name=".subservice.NewSubServiceActivity" />
+        <activity android:name=".reservedservice.ReservedServiceActivity" />
+        <activity android:name=".reservation.ReservationActivity" />
+        <activity android:name=".service.ServicesActivity" />
+        <activity android:name=".subservice.SubServiceActivity" />
+        <activity android:name=".provider.ProvidersActivity" />
+        <activity android:name=".profile.RegisterActivity" />
+        <activity android:name=".profile.ProfileActivity" />
+        <activity android:name=".profile.LoginActivity" />
+        <activity android:name=".profile.SettingsActivity" />
+        <activity
+            android:name=".service.ServiceActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".provider.ProviderActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".main.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".broadcast.ReminderBroadcast" />
+        <receiver android:name=".broadcast.CancelServiceBroadcast" />
+        <receiver android:name=".broadcast.NewServiceBroadcast" />
+    </application>
+</manifest>
